@@ -247,16 +247,16 @@
                     <a href="#" class="search-toggle iq-waves-effect d-flex align-items-center bg-primary rounded">
                         <img src="{{ asset('backend') }}/images/user/1.jpg" class="img-fluid rounded mr-3" alt="user">
                         <div class="caption">
-                            <h6 class="mb-0 line-height text-white">Nik jone</h6>
-                            <span class="font-size-12 text-white">Available</span>
+                            <h6 class="mb-0 line-height text-white">{{ Auth::user()->name }}</h6>
+                            <span class="font-size-12 text-success">Online</span>
                         </div>
                     </a>
                     <div class="iq-sub-dropdown iq-user-dropdown">
                         <div class="iq-card shadow-none m-0">
                             <div class="iq-card-body p-0 ">
                                 <div class="bg-primary p-3">
-                                    <h5 class="mb-0 text-white line-height">Hello Nik jone</h5>
-                                    <span class="text-white font-size-12">Available</span>
+                                    <h5 class="mb-0 text-white line-height">Hello {{ Auth::user()->name }}</h5>
+                                    <span class="text-success font-size-12">Online</span>
                                 </div>
                                 <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
                                     <div class="media align-items-center">

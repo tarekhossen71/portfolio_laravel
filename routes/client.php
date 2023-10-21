@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Client\ClientDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +16,7 @@ use App\Http\Controllers\Backend\DashboardController;
 */
 
 
-Route::prefix('app')->name('app.')->middleware('auth','permission')->group(function(){
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::prefix('portal')->name('portal.')->middleware(['auth', 'is_client', 'is_verify'])->group(function(){
+    Route::get('/dashboard', [ClientDashboardController::class, 'dashboard'])->name('dashboard');
 });
 

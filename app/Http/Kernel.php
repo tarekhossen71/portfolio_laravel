@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ClientMiddleware;
 use App\Http\Middleware\PermissionMeddleware;
+use App\Http\Middleware\VerifyMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -66,5 +68,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'permission'=> PermissionMeddleware::class,
+        'is_verify'=> VerifyMiddleware::class,
+        'is_client'=> ClientMiddleware::class,
     ];
 }

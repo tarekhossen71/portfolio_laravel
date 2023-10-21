@@ -22,6 +22,10 @@ class RedirectIfAuthenticated
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 return redirect(RouteServiceProvider::HOME);
+            }else if(Auth::guard($guard)->check() && Auth::user()->role->slug == 'client'){
+                return redirect()->route('portal.dashboard');
+            }else{
+                return $next($request);
             }
         }
 
