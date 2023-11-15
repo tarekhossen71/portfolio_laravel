@@ -18,6 +18,6 @@ use App\Http\Controllers\Backend\DashboardController;
 
 Route::prefix('admin')->name('admin.')->middleware('auth','permission')->group(function(){
     Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
-    Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+    
 });
 

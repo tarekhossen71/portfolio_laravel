@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use App\Models\User;
-use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -31,7 +32,14 @@ class RegisterController extends Controller
      */
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected $redirectTo = 'app/dashboard';
-
+    public function redirectTo()
+    {
+        if (Auth::check() && Auth::user()->role->slug == 'client') {
+            return route('portal.dashboard');
+        } else if (Auth::check() && Auth::user()->role->slug != 'client') {
+            return route('app.dashboard');
+        }
+    }
     /**
      * Create a new controller instance.
      *

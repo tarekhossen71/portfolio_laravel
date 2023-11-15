@@ -10,7 +10,9 @@ class DashboardController extends Controller
 {
     public function dashboard()
     {
-        // Gate::authorize('app.dashboard');
-        return view('layouts.backend.index');
+        Gate::authorize('app.dashboard');
+        $breadcrumb = ['Dashboard' => ''];
+        setThisPageTitle('Dashboard');
+        return view('backend.pages.dashboard.dashboard', compact('breadcrumb'));
     }
 }
