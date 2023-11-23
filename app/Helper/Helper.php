@@ -10,3 +10,14 @@ if (!function_exists('setThisPageTitle')) {
         view()->share(['title' => $title]);
     }
 }
+
+/**
+*   Date Format
+*/
+
+if (!function_exists('date_formats')) {
+    function date_formats($format, $date)
+    {
+        return date($format, strtotime($date));
+    }
+}

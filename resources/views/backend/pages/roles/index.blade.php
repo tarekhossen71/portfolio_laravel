@@ -11,6 +11,9 @@
         .table thead th:last-child{
             text-align: right;
         }
+        .table tbody tr td:last-child{
+            text-align: right;
+        }
     </style>
 @endpush
 @section('content')
@@ -28,7 +31,7 @@
                             <th>Permissions</th>
                             <th>Note</th>
                             <th>Created At</th>
-                            <th>Operations</th>
+                            <th class="text-end">Actions</th>
                         </thead>
                         <tbody>
                         </tbody>
@@ -57,17 +60,19 @@
                 type: 'POST',
                 dataType: 'json',
                 data:function(d){
-
+                    d._token = _token
                 },
             },
             columns:[
-                {data: 'sl'},
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
                 {data: 'name'},
                 {data: 'permissions'},
                 {data: 'note'},
                 {data: 'created_at'},
-                {data: 'action'},
-            ]
+                {data: 'action', name: 'action', orderable: false, searchable: false},
+            ],
+            dom: 'Bfrtip',
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print','colvis'],
         });
     </script>
 @endpush

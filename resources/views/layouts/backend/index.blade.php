@@ -11,6 +11,7 @@
       <!-- datatable cdn -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
       <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap4.min.css">
+      <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
       <!-- font-awesome CSS cdn -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
       <!-- Bootstrap CSS -->
@@ -102,6 +103,15 @@
       <script src="{{ asset('backend') }}/js/custom.js"></script>
       <!-- Data table -->
       <script src="{{ asset('backend/css/datatable/js/jquery.dataTables.min.js') }}"></script>
+      <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+      <script>
+         var _token = "{{ csrf_token() }}";
+      </script>
       @stack('scripts')
    </body>
 </html>
